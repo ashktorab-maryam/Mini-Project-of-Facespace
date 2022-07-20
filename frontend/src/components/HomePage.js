@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { UserContext } from "./UserContext"
 import styled from "styled-components"
+import ProfilePage from "./ProfilePage"
+import { Link } from "react-router-dom"
 
 const HomePage = () => {
     const {
@@ -11,13 +13,14 @@ const HomePage = () => {
 
     return (<div>
         <Nav>Facespace</Nav>
+        <Div2>
         <Header>All Facespace members</Header>
         {users.map((user)=>{
             return <Div>
-                
-                <Img src={user.avatarUrl}></Img>
+                <Link to = {`/profile/${user.id}`}><Img src={user.avatarUrl}></Img></Link>
             </Div>
         })}
+        </Div2>
     </div>)
 }
 
@@ -27,26 +30,34 @@ padding:10px;
 background-color:darkorange;
 color: white;
 margin-bottom:20px;
+font-weight:bold;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 const Header = styled.p`
 font-size:30px;
+font-weight:bold;
 color: darkorange;
-/* margin-left:100px; */
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 const Div = styled.div`
 display:inline-block;
 `;
 
+const Div2 = styled.div`
+margin-left:100px;
+margin-right:100px;
+`;
+
 const Img = styled.img`
 display:inline-block;
 margin:3px;
-width:150px;
-border: 1px solid orange;
+width:120px;
+border: 3px solid darkorange;
 cursor: pointer;
 :hover {
-border: 5px solid orange;
+border: 5px solid darkorange;
 transform: scale(0.97);
 }
 `;

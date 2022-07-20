@@ -3,6 +3,7 @@ import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import { UserProvider } from "./UserContext";
 import HomePage from "./HomePage";
+import ProfilePage from "./ProfilePage";
 
 
 
@@ -16,7 +17,7 @@ const App = () => {
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>
-          <Route path="/page-1">Page 1</Route>
+          <Route path="/profile/:profileId"><ProfilePage/></Route>
         </Switch>
       </UserProvider>
       </div>
