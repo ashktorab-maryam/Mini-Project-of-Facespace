@@ -45,7 +45,6 @@ users.find((user) => user.id===id)
 console.log(myFriends)
 
     return (<div>
-        <Nav>Facespace</Nav>
         {/* <BackgroundIm src={new_file_info}/> */}
         <BackgroundIm src={cropfacespace_bg}/>
         <ImgProfile src={currentProfiles.avatarUrl}></ImgProfile>
@@ -53,28 +52,23 @@ console.log(myFriends)
         <FriendsN>{currentProfiles.name}'s Friends</FriendsN>
 
         {myFriends.map((freind) =>{
-            return <Img src={freind.avatarUrl}></Img>
-        })}
+            return <Div>
+
+                <Img src={freind.avatarUrl}></Img>
+                <SpanStyle>{freind.name}</SpanStyle>
+                </Div>
+            })}
 
 
     
     </div>)
 }
-const Nav = styled.p`
-font-size:30px;
-padding:10px;
-background-color:darkorange;
-color: white;
-font-weight:bold;
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-`;
 
 const BackgroundIm = styled.img`
 display:block;
 width: 100%;
 /* max-height: 45vh;
-object-fit: cover; */
-/* margin-top:-300px; */
+object-fit: cover;  */
 `;
 
 const ImgProfile = styled.img`
@@ -82,14 +76,14 @@ const ImgProfile = styled.img`
 margin-left:17%;
 margin-top:-10%;
 width:20%;
-border: 3px solid darkorange;
+border: 3px solid #cc5500;
 cursor: pointer;
 `;
 
 const Name = styled.p`
 display:inline-block;
 margin-left:10px;
-color: darkorange;
+color: #cc5500;
 font-weight: bold;
 font-size: 30px;
 `;
@@ -97,23 +91,42 @@ font-size: 30px;
 const FriendsN = styled.p`
 margin-top:50px;
 margin-left:10px;
-color: darkorange;
+color: #cc5500;
 font-weight: bold;
 font-size: 30px;
-border-bottom: 2px solid darkorange;
+border-bottom: 2px solid #cc5500;
 padding-bottom:5px;
 `;
 
-
-
-
 const Img = styled.img`
-margin:3px;
-width:20%;
-border: 3px solid darkorange;
-cursor: pointer;
-margin-top:20px;
+/* margin:3px; */
+width:100%;
+border: 3px solid #cc5500;
+/* cursor: pointer; */
+/* margin-top:20px; */
+
 `;
+
+const SpanStyle = styled.span`
+width:100%;
+font-size:30px;
+background-color:rgba(204, 85, 0, 0.3);
+font-weight:bold;
+position:absolute;
+text-align:center;
+bottom:0;
+left:0;
+padding-bottom:10px;
+
+`;
+const Div = styled.div`
+display:inline-block;
+padding:5px;
+width:20%;
+position:relative;
+`;
+
+
 
 
 export default ProfilePage

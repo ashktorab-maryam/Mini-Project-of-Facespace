@@ -101,10 +101,23 @@ const handleFriends = (req, res) => {
   );
 };
 
+const haddleSignIn = (req, res) => {
+  const {name} = req.body
+  const signedInUser = res.locals.users.filter((user) => 
+  user.name.toLowerCase() === name.toLowerCase()
+  )
+  if (signedInUser.length!==0)
+  sendResponse(res, 200, signedInUser[0], 'Wellcome User');
+  
+  else (sendResponse(res, 404, {}, 'User Not Define'));
+  console.log(signedInUser)
+}
+
 module.exports = {
   deleteUser,
   getUsers,
   getUserById,
   handleFriends,
   updateUser,
+  haddleSignIn,
 };

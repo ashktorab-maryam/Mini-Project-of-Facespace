@@ -6,6 +6,7 @@ export const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
     const [users,setUsers] = useState()
     const [status,setStatus] = useState('loading')
+    const [currentUser, setCurrentUser]= useState(JSON.parse(sessionStorage.getItem('user')))
 
     useEffect(() => {
         setStatus("loading")
@@ -15,12 +16,15 @@ export const UserProvider = ({ children }) => {
             console.log(data)
             setUsers(data.data)
             setStatus("idle")
+            
         })
     },[])
 
     return  (
         <UserContext.Provider value={{
-            users
+            users,
+            currentUser,
+            setCurrentUser
         }}>
             {children}
         </UserContext.Provider>
